@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verific de Vel</title>
+</head>
+<body>
+    <h1>Verificar Velocidade</h1>
+    <input type="text" name="text" id="itext"> km/hr
+    <input type="button" value="Veriificar"onclick= "clique()">
+    <div id="res">Resultado</div>
+
+    <script>
+        function clique(){
+            var itext = window.document.getElementById('itext')
+            var res = window.document.getElementById('res')
+            var r = Number(itext.value)
+            res.innerHTML = `Resposta: sua velocidade foi de ${r} hm/h`
+
+            if (r > 50){
+                res.innerHTML += (` e ultrapassou o limtite. MULTADO`)
+            } else{
+                res.innerHTML +=(`, você estava dentro do limete!`)
+            }}
+
+            
+       
+    </script>
+</body>
+</html>
