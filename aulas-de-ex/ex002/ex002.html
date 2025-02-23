@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora</title>
+
+    <style>
+
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0px;
+            padding: 0px;
+
+        }
+        body{
+            background-color: rgb(109, 218, 154);
+        }
+
+        header > h1{
+            text-align: center;
+            margin: 30px;
+            color: rgb(0, 0, 0);
+        }
+
+        section{
+            background-color: white;
+            min-height: 150px;
+            max-height: 400px;
+            width: 600px;
+            margin: auto;
+            border-radius: 20px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        section > div {
+            margin-left: 5px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        section > div > p {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        }   
+
+        img{
+            display: block;
+            margin: auto;
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verificador de idade</h1>
+    </header>
+    <section>
+       <div>
+            <p>
+                Ano de nascimento:
+                <input type="number" name="num" id="iano" required>
+            </p>
+
+            Sexo: <input type="radio" name="sex" id="ifem"><label for="fem">Feminino</label>
+            <input type="radio" name="sex" id="imasc" checked><label for="mas">Masculino</label>
+            
+            <p>
+                <input type="button" value="verificar" onclick="verificar()">
+                
+            </p>
+
+            
+       </div>
+
+       <div id="res">
+        Preencha os dados acima para ver o resultado
+       </div>
+       
+       <img src="" alt="" id="img">
+    </section>
+
+    <script>
+        function verificar(){
+            var data = new Date()
+            var ano = data.getFullYear()
+            var fano = document.getElementById ('iano')
+            var res = document.getElementById ('res')
+            if(fano.value.length ==0 || fano.value > ano){
+                window.alert('[ERRO] Verifique os dados e tente novamente')
+            } else{
+                var fsex = document.getElementsByName('sex')
+                var img = document.getElementById ('img')
+                var idade = ano - Number(fano.value)
+                var genero = ''
+
+                if(fsex[1].checked){
+                    genero = 'Homem'
+                    if (idade >=0 && idade < 10){
+                        img.src = 'imagens/criançahomem.jpg'
+                    } else if (idade >= 10 && idade < 21){
+                        img.src = 'imagens/jovemhomem.avif'
+                    } else if (idade >=21 && idade < 50){
+                        img.src = 'imagens/adultohomem.avif'
+                    } else {
+                        img.src = 'imagens/velhohomem.jpg'
+                    }
+                } else if (fsex[0].checked){
+                    genero = 'Mulher'
+                    if (idade >=0 && idade < 10){
+                        img.src = 'imagens/criançamulher.avif'
+                    } else if (idade >= 10 && idade < 21){
+                        img.src = 'imagens/jovemmulher.jpg'
+                    } else if (idade >=21 && idade < 50){
+                        img.src = 'imagens/adultamulher.avif'
+                    } else {
+                        img.src = 'imagens/velhamulher.jpg'
+                    }   
+                }
+
+                res.style.textAlign = 'center'
+                res.innerHTML = `Detectamos ${genero} com ${idade} anos`
+
+            }
+        }
+    </script>
+</body>
+</html>
