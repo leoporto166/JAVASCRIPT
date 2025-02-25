@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX003</title>
+</head>
+<body>
+    <h1>Vamos contar</h1>
+    <section>
+        <div id="dados">
+            <p>Incio: <input type="number" name="num1" id="inum1"></p>
+            <p>Fim:<input type="number" name="num2" id="inum2"></p>
+            <p>Passo:<input type="number" name="num2" id="inum3"></p>
+            <p><input type="button" value="Contar" onclick="contar()"></p>
+        </div>
+        <div id="res">
+            Preparando a contagem...
+        </div>
+    </section>
+
+    <script>
+    function contar(){
+        var ini = document.getElementById ('inum1')
+        var fim = document.getElementById ('inum2')
+        var passo = document.getElementById ('inum3')
+        var res = document.getElementById ('res')
+        
+        if (ini.value.length == 0 || fim.value.length==0 || passo.value.length ==0){
+            window.alert ('[ERRO] faltam dados!') 
+        } else {
+            res.innerHTML = 'Contando...'
+            var i = Number(ini.value)
+            var f = Number (fim.value)
+            var p = Number (passo.value)
+            if(p <= 0){
+            window.alert(`Passso invalido, considerano PASSO = 1`)
+            p = 1
+
+        }
+            if(i < f){ //contagem crescente
+                for(var c = i; c <= f; c += p) {
+                res.innerHTML += ` ${c} \u{2192} `
+            }
+        } else{ //contagem decrescente
+            for(var c =i; c >= f; c -= p){
+                res.innerHTML += ` ${c} \u{2192}`
+            }
+        }
+        
+            
+            }
+            res.innerHTML += `...`
+    }</script>
+</body>
+</html>

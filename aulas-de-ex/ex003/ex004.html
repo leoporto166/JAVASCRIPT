@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX004</title>
+</head>
+<body>
+    <h1>Tabuada</h1>
+    <section>
+        <div id="dados">
+            <p>Numero: <input type="number" name="num1" id="inum1"></p>
+            <p><input type="button" value="Gerar" onclick="tabuada()"></p>
+            
+        </div>
+        <div id="res">
+            <select name="tabuada" id="itabuada"></select>
+        </div>
+    </section>
+
+    <script>
+    function tabuada(){ 
+        var calc = document.getElementById ('inum1')
+        var tab = get.getElementById ('itabuada')
+        
+        if(calc.value.length == 0){
+            window.alert(`Impossivel calcular`)
+        } else {
+            var calc = Number(calc.value)
+        }
+    }
