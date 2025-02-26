@@ -9,23 +9,36 @@
     <h1>Tabuada</h1>
     <section>
         <div id="dados">
-            <p>Numero: <input type="number" name="num1" id="inum1"></p>
-            <p><input type="button" value="Gerar" onclick="tabuada()"></p>
+            <p>Numero: <input type="number" name="num" id="inum"> 
+            <input type="button" value="Gerar" onclick="tabuada()">
+            </p>
             
         </div>
         <div id="res">
-            <select name="tabuada" id="itabuada"></select>
+            <select name="tabuada" id="itab" size="10"><option value="">Digite um numero na opção acima...</option></select>
         </div>
     </section>
 
     <script>
     function tabuada(){ 
-        var calc = document.getElementById ('inum1')
-        var tab = get.getElementById ('itabuada')
+        var num = document.getElementById ('inum')
+        var tab = document.getElementById ('itab')
         
-        if(calc.value.length == 0){
+        if(num.value.length == 0){
             window.alert(`Impossivel calcular`)
         } else {
-            var calc = Number(calc.value)
+            var num = Number(num.value)
+
+            tab.innerHTML=''
+            for(var c = 1; c<=10; c++){
+                var item = document.createElement('option')
+                item.text = (`${num} x ${c} = ${num*c}`)
+                tab.appendChild(item)
+                item.value = `tab${c}`
+            }
+
         }
     }
+    </script>
+</body>
+</html>

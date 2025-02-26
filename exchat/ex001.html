@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+</head>
+<body>
+    <h1>Contagem</h1>
+
+    <section>
+        <div>
+            <input type="number" name="num" id="inum">
+            <input type="button" value="Contar" onclick="contar()">
+        </div>
+
+        <div>
+            <div id="res"></div>
+        </div>
+    </section>
+
+    <script>
+        function contar(){
+            var num = document.getElementById('inum')
+            var res = document.getElementById('res')
+
+            if(num.value.length == 0){
+                window.alert(`Digite um número para inicar a contagem!`)
+            }
+
+            var c = Number(num.value)
+            res.innerHTML =''
+
+            while(c >= 0){
+                res.innerHTML += (`${c} <br>`)
+                c--
+            }
+        }
+    </script>
+</body>
+</html>
