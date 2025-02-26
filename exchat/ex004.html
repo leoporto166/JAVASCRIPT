@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+</head>
+<body>
+    <h1>Digite um numero par</h1>
+
+    <section>
+        <div>
+            <input type="text" name="num" id="inum">
+            <input type="button" value="resultado" onclick="resultado()">
+        </div>
+
+        <div>
+            <div id="res"></div>
+        </div>
+    </section>
+
+    <script>
+        function resultado(){
+            var n = document.getElementById('inum')
+            var res = document.getElementById('res')
+
+            var n = Number(n.value)
+            res.innerHTML=''
+
+            if(n % 2 !== 0){
+                res.innerHTML = ('Insira um numero par')
+                return // Para a execução se o número for inválido
+            }
+
+            for (var n = n ; n <=20; n+=2){
+                res.innerHTML += (`${n} <br>`)
+            }
+           
+        }
+    </script>
+</body>
+</html>

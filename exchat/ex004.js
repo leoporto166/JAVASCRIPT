@@ -1,4 +1,4 @@
 
-for(var c = 2; c % 2 ==0; c+= 2){
+for(var c = 2; c <=20; c+= 2){
     console.log(`${c}`)
 }
