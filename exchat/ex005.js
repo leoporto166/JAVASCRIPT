@@ -1,5 +1,7 @@
 var n = 5
+var fatorial = 1;
 
-for(var c = n; n <=10; c--){
-    console.log(`${c} x ${n} = ${c*n}`)
+for(var c = n; c >= 1; c--){
+    fatorial *= c;
+    console.log(`${n}! = ${fatorial}`);
 }
