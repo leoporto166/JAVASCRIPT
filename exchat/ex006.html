@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+</head>
+<body>
+    <h1>Fatorial</h1>
+
+    <section>
+        <div>
+            <input type="number" name="celsius" id="icelsius"> °C
+            <input type="button" value="converter" onclick="conversor()">
+        </div>
+
+        <div>
+            <div id="res"></div>
+        </div>
+    </section>
+
+    <script>
+        function conversor(){
+            var c = document.getElementById('icelsius')
+            var res = document.getElementById('res')
+
+            res.innerHTML=''
+            var c = Number(c.value)
+
+            if(c == ''){
+                window.alert('Insira um valor')
+                return
+            } else{
+                res.innerHTML = (`${c} em Fehrenheit é ${c*1.8+32}`)
+            }
+        
+        }
+    </script>
+</body>
+</html>

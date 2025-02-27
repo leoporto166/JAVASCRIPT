@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+</head>
+<body>
+    <h1>Adivinhe o numero de 1 a 100</h1>
+
+    <section>
+        <div>
+            <input type="number" name="num" id="inum">
+            <input type="button" value="Adivinhar" onclick="adivinhar()">
+        </div>
+
+        <div>
+            <div id="res"></div>
+        </div>
+    </section>
+
+    <script>
+        var aleatorio = Math.floor(Math.random() * 100) + 1
+        function adivinhar(){
+            var valor = document.getElementById('inum')
+            var res = document.getElementById('res')
+            
+            var valor = Number(valor.value)
+
+            if(valor == ''){
+                window.alert (`Digite um valor valido`)
+            } else if (valor < aleatorio){
+                res.innerHTML = (`O número é maior que ${valor}`)
+            } else if (valor > aleatorio){
+                res.innerHTML = (`O número é menor que ${valor}`)
+            } else if (valor == aleatorio){
+                res.innerHTML = (`ACERTOU! o número era ${aleatorio}`)
+            }
+
+            
+        
+        }
+    </script>
+</body>
+</html>
