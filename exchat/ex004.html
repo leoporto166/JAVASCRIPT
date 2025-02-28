@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contagem Regressiva</title>
+
+    <style>
+        body{
+            background-color: green;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+
+        }
+
+        section{
+            background-color: white;
+            width: 300px;
+            min-height: 150px;
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        
+        }
+
+        h1{
+            align-self: normal;
+            
+        }
+    </style>
 </head>
 <body>
-    <h1>Digite um numero par</h1>
+    
 
     <section>
+        <h1>Digite um numero par</h1>
         <div>
             <input type="text" name="num" id="inum">
             <input type="button" value="resultado" onclick="resultado()">

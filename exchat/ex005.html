@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contagem Regressiva</title>
+
+    <style>
+        body{
+            background-color: green;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+
+        }
+
+        section{
+            background-color: white;
+            width: 300px;
+            min-height: 150px;
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        
+        }
+
+        h1{
+            align-self: normal;
+            
+        }
+    </style>
 </head>
 <body>
-    <h1>Fatorial</h1>
+    
 
     <section>
+        <h1>Fatorial</h1>
         <div>
             <input type="text" name="num" id="inum">
             <input type="button" value="resultado" onclick="resultado()">
@@ -27,22 +55,19 @@
             var fatorial = 1
             res.innerHTML=''
 
-            var num = Number(num.value)
+            var valor = Number(num.value)
 
             if(num == '' || num.value.length == 0){
                 window.alert('Insira um numero')
+                return
             }
 
-            for(var c = num; c>=1; c--){
+            for(var c = valor; c>=1; c--){
                 fatorial *= c
+                res.innerHTML = (`${valor}! = ${fatorial}`) 
                 
             }
-            res.innerHTML = (`${num}! = ${fatorial}`)
-            
-
-
-
-           
+             
         }
     </script>
 </body>
