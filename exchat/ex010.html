@@ -44,37 +44,52 @@
     
 
     <section>
-        <h1>Adivinhe o numero de 1 a 100</h1>
+        <h1>Adivinhe o numero de 0 a 100</h1>
         <div>
             <input type="number" name="num" id="inum">
-            <input type="button" value="Adivinhar" onclick="adivinhar()">
+            <input type="button" value="Tentar" onclick="tentar()">
         </div>
 
-        <div>
-            <div id="res"></div>
+        <div id="res">
         </div>
+
+        <div id="tentativas">Tentativas:0</div>
+        <div id="historico">Números tentados: Nenhum</div>
+
     </section>
 
     <script>
-        var aleatorio = Math.floor(Math.random() * 100) + 1
-        function adivinhar(){
+    var aleatorio = Math.floor(Math.random() * 100) + 1
+    var tentativas = 0
+    var nt = []
+        function tentar(){
             var valor = document.getElementById('inum')
             var res = document.getElementById('res')
-            
+            var tentativasDiv = document.getElementById('tentativas')
+            var historico = document.getElementById('historico')
             var valor = Number(valor.value)
-
-            if(valor == ''){
-                window.alert (`Digite um valor valido`)
-            } else if (valor < aleatorio){
-                res.innerHTML = (`O número é maior que ${valor}`)
-            } else if (valor > aleatorio){
-                res.innerHTML = (`O número é menor que ${valor}`)
-            } else if (valor == aleatorio){
-                res.innerHTML = (`ACERTOU! o número era ${aleatorio}`)
+            
+            if(valor == '' || valor < 0){
+                window.alert(`Insira um valor valido`)
+                return
             }
 
+            if(valor < aleatorio){
+                res.innerHTML = (`O número é maior que ${valor}`)
+            } if (valor > aleatorio){
+                res.innerHTML = (`O número é menor que ${valor}`)
+            } if (valor == aleatorio){
+                res.innerHTML = (`Você acertou!! o número era ${aleatorio}. Parabéns`)
+            }
+
+            nt.push(valor)
+            tentativas++
+            tentativasDiv.innerHTML = `Tentativas: ${tentativas}`;
+
+            historico.innerHTML = (`Números tentados :<br> ${nt.join('<br>')}`)
+            historico.style.textAlign = 'center';
+           
             
-        
         }
     </script>
 </body>

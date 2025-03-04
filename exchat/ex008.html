@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+
+    <style>
+        style>
+        body{
+            height: 100vh;
+            background-color: green;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            
+            
+
+        }
+
+        section{
+            background-color: white;
+            width: 300px;
+            min-height: 200px;
+            margin-top: 50px;
+            display: flex;
+            align-items: center; 
+            flex-direction: column;
+            border-radius: 10px;
+            box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.301);
+        }
+
+        h1{
+            align-self: normal;
+        }
+
+        div{
+            margin: 5px;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    
+
+    <section>
+        <h1>Lista de Tarefas</h1>
+        <div>
+            <input type="text" name="taref" id="itaref">
+            <input type="button" value="Adicionar" onclick="adicionar()">
+        </div>
+
+        <div>
+            <input type="button" value="Listar" onclick="listar()">
+            
+        </div>
+
+        <div>
+            <div id="res">
+               
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var tarefas = []
+        var res = document.getElementById('itarefs')
+        resultado = document.getElementById('res')
+        function adicionar(){
+        var itaref = document.getElementById
+        ('itaref')
+        var tarefa = itaref.value.trim()
+
+        if(itaref.value.length == 0){
+            window.alert(`Insira algo`)
+            return
+        } if (tarefas.includes(tarefa)){
+            window.alert(`Essa tarefa já foi inserida`)
+            return
+        } else{
+            window.alert(`${tarefa} foi inserado(a)`)
+        }
+
+        tarefas.push(tarefa)
+
+       }
+
+       function listar(){
+        var checkbox = document.getElementById('icheck');
+            resultado.innerHTML = ""
+
+            if (tarefas.length === 0) {
+                resultado.innerHTML += "Nenhuma tarefa adicionada."
+            } else {
+                resultado.innerHTML += (`<strong>Tarefas:</strong> <br> ${tarefas.join('<br>')}`);
+            }
+       }
+    </script>
+</body>
+</html>

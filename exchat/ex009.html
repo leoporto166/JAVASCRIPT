@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo de Adivinhação</title>
+    <title>Tabuada</title>
 
     <style>
+
         body{
             height: 100vh;
             background-color: green;
@@ -44,37 +45,35 @@
     
 
     <section>
-        <h1>Adivinhe o numero de 1 a 100</h1>
+        <h1>Tabuada</h1>
         <div>
             <input type="number" name="num" id="inum">
-            <input type="button" value="Adivinhar" onclick="adivinhar()">
+            <input type="button" value="Calcular" onclick="calcular()">
         </div>
 
         <div>
-            <div id="res"></div>
+            <select name="tabua" id="itabua" size="10"><option>Digite um número acima...</option></select>
         </div>
+
     </section>
 
     <script>
-        var aleatorio = Math.floor(Math.random() * 100) + 1
-        function adivinhar(){
-            var valor = document.getElementById('inum')
-            var res = document.getElementById('res')
-            
-            var valor = Number(valor.value)
+        function calcular(){
+            var inum = document.getElementById('inum')
+            var res = document.getElementById('itabua')
+            var num = Number(inum.value)
 
-            if(valor == ''){
-                window.alert (`Digite um valor valido`)
-            } else if (valor < aleatorio){
-                res.innerHTML = (`O número é maior que ${valor}`)
-            } else if (valor > aleatorio){
-                res.innerHTML = (`O número é menor que ${valor}`)
-            } else if (valor == aleatorio){
-                res.innerHTML = (`ACERTOU! o número era ${aleatorio}`)
+            if(num ==''){
+                window.alert(`Adicione um numero`)
+                return
             }
 
-            
-        
+            res.innerHTML=''
+            for(var valor = 1; valor <= 10; valor++){
+                var option = document.createElement('option')
+                option.text += (`${num} x ${valor} = ${num*valor}`)
+                res.appendChild(option);
+            }
         }
     </script>
 </body>
